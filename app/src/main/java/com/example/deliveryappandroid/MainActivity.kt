@@ -35,8 +35,6 @@ class MainActivity : ComponentActivity() {
             DeliveryAppAndroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    color = Color(0xFFFCFA),
-                    modifier = Modifier.fillMaxSize()
                 ) {
                     Navigation()
                 }
@@ -45,47 +43,3 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
-@Composable
-fun Navigation() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "splash_screen") {
-        composable("splash_screen") {
-            SplashScreen(navController = navController)
-        }
-        composable("main_screen") {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(text = "Main Screen", color = Color.White)
-            }
-        }
-    }
-}
-
-@Composable
-fun SplashScreen(navController: NavController) {
-    val scale = remember {
-        Animatable(0f)
-    }
-    LaunchedEffect(key1 = true) {
-        scale.animateTo(
-            targetValue = 0.5f,
-            animationSpec = tween(
-                durationMillis = 500,
-                easing = {
-                    OvershootInterpolator(2f).getInterpolation(it)
-                }
-            )
-        )
-        delay(3000L)
-        navController.navigate("main_screen")
-    }
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.ic_logo),
-            contentDescription = "Logo"
-        )
-    }
-}

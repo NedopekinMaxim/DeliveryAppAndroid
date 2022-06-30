@@ -2,7 +2,10 @@ package com.example.deliveryappandroid.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+// Used colors in Project
+val BackgroundColor = Color(0xFFFCFA)
+val TittleColor = Color(0x172600)
+val SurfaceColor = Color(0x96C84B)
+val MinorOrangeColor = Color(0xFB9731)
+val MinorBlueColor = Color(0x4BBEED)
+val MinorGrayColor = Color(0x808080)
