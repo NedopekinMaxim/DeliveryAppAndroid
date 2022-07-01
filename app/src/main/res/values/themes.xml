@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
 
-    <style name="Theme.DeliveryAppAndroid" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:windowFullscreen">true</item>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Theme.DeliveryAppAndroid" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/BackgroundColor</item>
+        <item name="colorPrimaryVariant">@color/BackgroundColor</item>
+        <item name="colorOnPrimary">@color/TittleColor</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/SurfaceColor</item>
+        <item name="colorSecondaryVariant">@color/SurfaceColor</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
     </style>
-</resources>
 
+    <!--
+    <style name="Theme.DeliveryAppAndroid.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.DeliveryAppAndroid.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.DeliveryAppAndroid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    -->
+
+</resources>
