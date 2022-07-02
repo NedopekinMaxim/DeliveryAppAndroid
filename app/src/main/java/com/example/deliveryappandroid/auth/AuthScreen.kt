@@ -22,7 +22,7 @@ import com.example.deliveryappandroid.ui.theme.SecondaryColor
 
 
 @Composable
-fun LaunchScreen(navController: NavController) {
+fun AuthScreen(navController: NavController) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center

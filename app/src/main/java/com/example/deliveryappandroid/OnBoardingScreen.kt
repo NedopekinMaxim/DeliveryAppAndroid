@@ -126,7 +126,7 @@ fun OnBoardingPager(
 
                     if (currentPage == 1) {
                         Button(
-                            onClick = { navController.navigate("LaunchScreen") },
+                            onClick = { navController.navigate("AuthScreen") },
                             modifier = Modifier
                                 .width(250.dp)
                                 .height(60.dp),

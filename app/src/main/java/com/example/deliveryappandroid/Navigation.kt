@@ -18,8 +18,8 @@ fun Navigation() {
             OnBoardingScreen(navController = navController)
         }
 
-        composable("LaunchScreen") {
-            LaunchScreen(navController = navController)
+        composable("AuthScreen") {
+            AuthScreen(navController = navController)
         }
         composable("SignInScreen") {
             SignInScreen()
