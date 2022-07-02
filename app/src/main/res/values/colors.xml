@@ -2,7 +2,7 @@
 <resources>
     <color name="BackgroundColor">#FFFCFA</color>
     <color name="TittleColor">#172600</color>
-    <color name="SurfaceColor">#96C84B</color>
+    <color name="SecondaryColor">#96C84B</color>
     <color name="MinorOrangeColor">#FB9731</color>
     <color name="MinorBlueColor">#4BBEED</color>
     <color name="MinorGrayColor">#808080</color>

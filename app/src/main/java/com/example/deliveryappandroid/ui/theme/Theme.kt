@@ -13,22 +13,22 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 private val DarkColorPalette = darkColors(
     primary = BackgroundColor,
     primaryVariant = BackgroundColor,
-    secondary = SurfaceColor
+    secondary = SecondaryColor
 )
 
 @SuppressLint()
 private val LightColorPalette = lightColors(
     primary = BackgroundColor,
     primaryVariant = BackgroundColor,
-    secondary = SurfaceColor,
+    secondary = SecondaryColor,
 
     // Other default colors to override
     background = BackgroundColor,
-    surface = SurfaceColor,
+    surface = BackgroundColor,
     onPrimary = TittleColor,
     onSecondary = Color.White,
     onBackground = TittleColor,
-    onSurface = Color.White,
+    onSurface = TittleColor,
 
 )
 
