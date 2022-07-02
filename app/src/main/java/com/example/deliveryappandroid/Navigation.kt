@@ -19,13 +19,13 @@ fun Navigation() {
         }
 
         composable("LaunchScreen") {
-            LaunchScreen()
+            LaunchScreen(navController = navController)
         }
         composable("SignInScreen") {
-
+            SignInScreen()
         }
         composable("SignUpScreen") {
-
+            SignUpScreen()
         }
     }
 }
