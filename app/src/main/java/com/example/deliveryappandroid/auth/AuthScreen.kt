@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.deliveryappandroid.ui.theme.BackgroundColor
 import com.example.deliveryappandroid.ui.theme.SecondaryColor
+import com.example.deliveryappandroid.ui.theme.TittleColor
 
 
 @Composable
@@ -50,7 +51,7 @@ fun AuthScreen(navController: NavController) {
                 shape = RoundedCornerShape(30.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = SecondaryColor)
             ) {
-                Text(text = "Login", style = MaterialTheme.typography.body2)
+                Text(text = "Login", style = MaterialTheme.typography.button)
             }
 
             Spacer(modifier = Modifier.height(25.dp))
@@ -63,7 +64,7 @@ fun AuthScreen(navController: NavController) {
                 shape = RoundedCornerShape(30.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color.White)
             ) {
-                Text(text = "Sign Up", style = MaterialTheme.typography.body1)
+                Text(text = "Sign Up", style = MaterialTheme.typography.button, color = TittleColor)
             }
 
         }

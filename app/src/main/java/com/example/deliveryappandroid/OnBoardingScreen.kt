@@ -22,10 +22,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.deliveryappandroid.data.OnBoardingData
-import com.example.deliveryappandroid.ui.theme.BackgroundColor
-import com.example.deliveryappandroid.ui.theme.MinorBlueColor
-import com.example.deliveryappandroid.ui.theme.MinorOrangeColor
-import com.example.deliveryappandroid.ui.theme.SecondaryColor
+import com.example.deliveryappandroid.ui.theme.*
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
@@ -133,7 +130,10 @@ fun OnBoardingPager(
                             shape = RoundedCornerShape(30.dp),
                             colors = ButtonDefaults.buttonColors(backgroundColor = SecondaryColor)
                         ) {
-                            Text(text = "Начнем!", style = MaterialTheme.typography.body2)
+                            Text(
+                                text = "Начнем!",
+                                style = MaterialTheme.typography.button
+                            )
                         }
                     } else {
                         Button(
@@ -151,7 +151,11 @@ fun OnBoardingPager(
                             shape = RoundedCornerShape(30.dp),
                             colors = ButtonDefaults.buttonColors(backgroundColor = BackgroundColor)
                         ) {
-                            Text(text = "Дальше", style = MaterialTheme.typography.body1)
+                            Text(
+                                text = "Дальше",
+                                style = MaterialTheme.typography.button,
+                                color = TittleColor
+                            )
                         }
                     }
 

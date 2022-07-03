@@ -66,6 +66,13 @@ val Typography = Typography(
         fontSize = 15.sp,
         color = Color.White
     ),
+    // SignInScreen (email, password,
+    h2 = TextStyle(
+        fontFamily = Inter,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        color = TittleColor
+    ),
 // добавить потом:
 // 4 одинаковых, Темный(Email,Password), Светлый(Forgot Password), Черный(Набор), Серый (подсвечивание
 // 3 цена кол-во, название и пр.

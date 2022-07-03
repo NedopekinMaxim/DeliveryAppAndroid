@@ -22,7 +22,7 @@ fun Navigation() {
             AuthScreen(navController = navController)
         }
         composable("SignInScreen") {
-            SignInScreen()
+            SignInScreen(navController = navController)
         }
         composable("SignUpScreen") {
             SignUpScreen()
