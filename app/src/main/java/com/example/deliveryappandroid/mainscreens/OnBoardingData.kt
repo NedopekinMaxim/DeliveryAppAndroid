@@ -1,7 +1,6 @@
-package com.example.deliveryappandroid.data
+package com.example.deliveryappandroid.mainscreens
 
 import androidx.compose.ui.graphics.Color
-import com.example.deliveryappandroid.ui.theme.BackgroundColor
 
 data class OnBoardingData(
     val image: Int,

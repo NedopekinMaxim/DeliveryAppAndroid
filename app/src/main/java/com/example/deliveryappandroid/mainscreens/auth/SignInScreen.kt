@@ -1,9 +1,8 @@
 package com.example.deliveryappandroid
 
-import android.graphics.Paint
+import android.content.Context
 import android.util.Patterns
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -19,22 +18,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.deliveryappandroid.api.model.requests.LoginRequest
+import com.example.deliveryappandroid.api.retrofit.RetrofitClient
+import com.example.deliveryappandroid.api.servieces.RetrofitService
 import com.example.deliveryappandroid.ui.theme.MinorGrayColor
 import com.example.deliveryappandroid.ui.theme.SecondaryColor
-
+import okhttp3.ResponseBody
+import retrofit2.*
 
 
 @Composable
-fun SignInScreen(navController: NavController) {
+fun SignInScreen(navController: NavController, context: Context) {
 
     val focusManager = LocalFocusManager.current
 
@@ -91,7 +92,7 @@ fun SignInScreen(navController: NavController) {
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
-                label = { Text(text = "Enter Email", color = MinorGrayColor)},
+                label = { Text(text = "E-mail", color = MinorGrayColor) },
                 placeholder = { Text(text = "abc@domain.com") },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
@@ -118,11 +119,12 @@ fun SignInScreen(navController: NavController) {
 
             )
 
+            Spacer(modifier = Modifier.height(10.dp))
 
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                label = { Text(text = "Enter Password", color = MinorGrayColor)},
+                label = { Text(text = "Password", color = MinorGrayColor) },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Password,
@@ -139,18 +141,18 @@ fun SignInScreen(navController: NavController) {
                     IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
                         Icon(
                             imageVector = if (isPasswordVisible)
-                                                Icons.Default.Visibility
-                                            else
-                                                Icons.Default.VisibilityOff,
+                                Icons.Default.Visibility
+                            else
+                                Icons.Default.VisibilityOff,
                             contentDescription = "Toggle password visibility"
                         )
 
                     }
                 },
                 visualTransformation = if (isPasswordVisible)
-                                            VisualTransformation.None
-                                        else
-                                            PasswordVisualTransformation()
+                    VisualTransformation.None
+                else
+                    PasswordVisualTransformation()
 
 
             )
@@ -162,7 +164,9 @@ fun SignInScreen(navController: NavController) {
             horizontalArrangement = Arrangement.End,
             modifier = Modifier.fillMaxWidth()
         ) {
-            TextButton(onClick = { /*TODO*/ }) {
+            TextButton(onClick = {
+
+            }) {
                 Text(
                     text = "Forgotten password?",
                     style = MaterialTheme.typography.h2,
@@ -175,8 +179,13 @@ fun SignInScreen(navController: NavController) {
         }
 
 
+        Spacer(modifier = Modifier.height(10.dp))
+
+
         Button(
-            onClick = {/*TODO*/},
+            onClick = {
+                signIn(email, password, context, navController)
+            },
             modifier = Modifier
                 .width(250.dp)
                 .height(60.dp),
@@ -192,7 +201,7 @@ fun SignInScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(80.dp))
 
-        TextButton(onClick = {navController.navigate("SignUpScreen")} ) {
+        TextButton(onClick = { navController.navigate("SignUpScreen") }) {
             Text(
                 text = "Create account",
                 style = MaterialTheme.typography.h2,
@@ -203,4 +212,29 @@ fun SignInScreen(navController: NavController) {
             )
         }
     }
+}
+
+fun signIn(email: String, password: String, context: Context, navController: NavController) {
+
+    val retIn = RetrofitClient.getRetrofitInstance().create(RetrofitService::class.java)
+    val loginInfo = LoginRequest(email, password)
+    retIn.loginUser(loginInfo).enqueue(object : Callback<ResponseBody> {
+        override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+            Toast.makeText(
+                context,
+                t.message,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+            if (response.code() == 200) {
+                Toast.makeText(context, "Успешный вход!", Toast.LENGTH_SHORT).show()
+                navController.navigate("MainScreen")
+            } else {
+                Toast.makeText(context, "Неправильный пароль или email", Toast.LENGTH_SHORT).show()
+            }
+        }
+    })
+
 }

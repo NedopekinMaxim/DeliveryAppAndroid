@@ -2,26 +2,22 @@ package com.example.deliveryappandroid
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.InternalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.TabRowDefaults.Indicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.deliveryappandroid.data.OnBoardingData
+import com.example.deliveryappandroid.mainscreens.OnBoardingData
 import com.example.deliveryappandroid.ui.theme.*
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -40,7 +36,7 @@ fun OnBoardingScreen(navController: NavController) {
             R.drawable.smile_star,
             MinorOrangeColor,
             "Вкусно и полезно!",
-            "Мы предлагаем людям вкуснейшие блюда из натуральный продуктов лучшего качества"
+            "Мы предлагаем людям вкуснейшие блюда из натуральных продуктов лучшего качества"
         )
     )
 
