@@ -12,9 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.deliveryappandroid.screens.history.historyList
 import com.example.deliveryappandroid.ui.theme.BackgroundColor
+import com.example.deliveryappandroid.ui.theme.TittleColor
+
+
+var pubEmail: String = ""
 
 @Composable
 fun ProfileScreen() {
@@ -28,6 +34,16 @@ fun ProfileScreen() {
         ) {
             Text("Профиль пользователя", style = MaterialTheme.typography.body1)
         }
-
+        Text(
+            text = "E-mail пользователя: $pubEmail",
+            color = TittleColor,
+            fontWeight = FontWeight.Normal,
+            textAlign = TextAlign.Center
+        )
+        Text(
+            text = "Всего заказов: ${historyList.size}",
+            color = TittleColor,
+            fontWeight = FontWeight.Normal
+        )
     }
 }

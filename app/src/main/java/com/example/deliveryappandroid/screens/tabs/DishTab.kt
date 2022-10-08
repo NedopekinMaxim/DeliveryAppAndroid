@@ -32,8 +32,8 @@ fun DishTab(dish: ViewModelDishes) {
             itemsIndexed(
                 listOf(
                     DishResponse("1", "Foods", "Пицца", "200", "R.drawable.pizza", "1"),
-                    DishResponse("1", "Foods", "Пицца", "200", "R.drawable.pizza", "1"),
-                    DishResponse("1", "Foods", "Пицца", "200", "R.drawable.pizza", "1")
+                    DishResponse("11", "Foods", "Мясо", "199", "R.drawable.pizza", "1"),
+
                 )
             ) { _, item ->
                 Dish(item = item)

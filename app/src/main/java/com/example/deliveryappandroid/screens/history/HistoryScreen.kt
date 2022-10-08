@@ -17,6 +17,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.deliveryappandroid.screens.cart.cartList
+import com.example.deliveryappandroid.screens.history.Order
+import com.example.deliveryappandroid.screens.history.historyList
 import com.example.deliveryappandroid.screens.tabs.Dish
 import com.example.deliveryappandroid.ui.theme.BackgroundColor
 
@@ -37,9 +39,9 @@ fun HistoryScreen() {
             modifier = Modifier.fillMaxHeight()
         ) {
             itemsIndexed(
-                cartList
+                historyList
             ) { _, item ->
-                Dish(item = item)
+                Order(item = item)
 
             }
 

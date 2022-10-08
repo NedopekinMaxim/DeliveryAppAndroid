@@ -23,6 +23,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.deliveryappandroid.R
+import com.example.deliveryappandroid.screens.history.pubAdress
 import com.example.deliveryappandroid.screens.tabs.TabDish
 import com.example.deliveryappandroid.screens.tabs.Tabs
 import com.example.deliveryappandroid.screens.tabs.TabsContent
@@ -48,6 +49,7 @@ fun HomeScreen() {
     var address by remember {
         mutableStateOf("")
     }
+
 
     val pagerState = rememberPagerState()
 
@@ -79,7 +81,7 @@ fun HomeScreen() {
                     )
                 )
 
-                IconButton(modifier = Modifier.fillMaxSize(), onClick = {}) {
+                IconButton(modifier = Modifier.fillMaxSize(), onClick = { pubAdress = address}) {
                     Icon(Icons.Filled.Search, contentDescription = "Search")
                 }
                 /*TextButton(

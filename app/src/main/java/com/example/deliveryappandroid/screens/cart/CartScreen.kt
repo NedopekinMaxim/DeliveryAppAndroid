@@ -36,6 +36,9 @@ import com.example.deliveryappandroid.api.retrofit.RetrofitClient
 import com.example.deliveryappandroid.api.servieces.RetrofitService
 import com.example.deliveryappandroid.screens.cart.cartList
 import com.example.deliveryappandroid.screens.cart.getPrice
+import com.example.deliveryappandroid.screens.history.historyList
+import com.example.deliveryappandroid.screens.history.orderItem
+import com.example.deliveryappandroid.screens.history.pubAdress
 import com.example.deliveryappandroid.screens.tabs.Dish
 import com.example.deliveryappandroid.signUp
 import com.example.deliveryappandroid.ui.theme.BackgroundColor
@@ -69,15 +72,19 @@ fun CartScreen() {
                     style = MaterialTheme.typography.body1
                 )
 
-                IconButton(
-                    modifier = Modifier
-                        .border(BorderStroke(1.dp, TittleColor)),
-                    onClick = { cartList.removeAll(cartList) }) {
-                    Icon(Icons.Filled.Refresh, contentDescription = "Refresh")
+                Spacer(modifier = Modifier.width(2.dp))
+
+                TextButton(onClick = { cartList.removeAll(cartList) }) {
+                    Image(painter = painterResource(id = R.drawable.icons8_delete), contentDescription = "Delete")
                 }
 
+                Spacer(modifier = Modifier.width(60.dp))
+
                 Button(
-                    onClick = {},
+                    onClick = {
+                              historyList.add(orderItem("${cartList.size}", pubAdress,"08.10","${getPrice(cartList)}"))
+                                cartList.removeAll(cartList)
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(48.dp),
@@ -108,6 +115,7 @@ fun CartScreen() {
         }
     }
 }
+
 
 
 /*

@@ -17,3 +17,6 @@ val MinorBlueColor = Color(0xFF4BBEED)
 val MinorGrayColor = Color(0xFF808080)
 
 val ItemColor = Color(0xFF96FF96)
+
+val orderColor = Color(0xFF96E1FF)
+

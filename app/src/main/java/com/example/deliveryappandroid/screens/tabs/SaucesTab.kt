@@ -33,9 +33,9 @@ fun SaucesTab(dish: ViewModelDishes) {
         ) {
             itemsIndexed(
                 listOf(
-                    DishResponse("3", "Sauce", "Сырный", "30", "R.drawable.pizza", "1"),
-                    DishResponse("3", "Sauce", "Сырный", "30", "R.drawable.pizza", "1"),
-                    DishResponse("3", "Sauce", "Сырный", "30", "R.drawable.pizza", "1")
+                    DishResponse("3", "Sauce", "Чесночный", "30", "R.drawable.pizza", "1"),
+                    DishResponse("33", "Sauce", "Сырный", "30", "R.drawable.pizza", "1"),
+                    DishResponse("333", "Sauce", "Терияки", "30", "R.drawable.pizza", "1")
                 )
             ) { _, item ->
                 Dish(item = item)
