@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
@@ -25,7 +26,7 @@ fun ProfileScreen() {
             backgroundColor = BackgroundColor,
             contentColor = Color.White
         ) {
-            Text("Профиль пользователя", fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
+            Text("Профиль пользователя", style = MaterialTheme.typography.body1)
         }
 
     }

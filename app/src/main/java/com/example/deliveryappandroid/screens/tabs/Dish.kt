@@ -26,6 +26,7 @@ import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 import com.example.deliveryappandroid.api.model.responses.DishResponse
 import com.example.deliveryappandroid.screens.cart.cartList
+import com.example.deliveryappandroid.ui.theme.ItemColor
 import com.example.deliveryappandroid.ui.theme.SecondaryColor
 
 
@@ -42,7 +43,7 @@ fun Dish(item: DishResponse) {
             .fillMaxWidth()
             .padding(3.dp)
             .clip(RoundedCornerShape(19.dp))
-            .background(Color())
+            .background(ItemColor)
             .height(100.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween

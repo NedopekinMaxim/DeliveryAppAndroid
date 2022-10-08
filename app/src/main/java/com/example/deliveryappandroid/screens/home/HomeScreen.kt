@@ -45,12 +45,11 @@ fun HomeScreen() {
         TabDish.Drinks
     )
 
-
-    val pagerState = rememberPagerState()
-
     var address by remember {
         mutableStateOf("")
     }
+
+    val pagerState = rememberPagerState()
 
 
     Column {
