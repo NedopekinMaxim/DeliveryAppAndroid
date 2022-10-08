@@ -49,7 +49,7 @@ fun MainScreen() {
                             .clip(RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)),
                         alwaysShowLabel = true,
                         selected = currentRoute == items.route,
-                        selectedContentColor = TittleColor,
+                        selectedContentColor = SecondaryColor,
                         unselectedContentColor = MinorGrayColor,
                         label = { Text(text = items.title, fontWeight = FontWeight.Bold) },
                         icon = { Icon(imageVector = items.icon, contentDescription = items.route) },

@@ -1,5 +1,6 @@
 package com.example.deliveryappandroid.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -13,13 +14,16 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.deliveryappandroid.R
 import com.example.deliveryappandroid.screens.tabs.TabDish
 import com.example.deliveryappandroid.screens.tabs.Tabs
 import com.example.deliveryappandroid.screens.tabs.TabsContent
@@ -33,7 +37,7 @@ import kotlin.text.Typography
 @ExperimentalPagerApi
 @ExperimentalMaterialApi
 @Composable
-fun HomeScreen(){
+fun HomeScreen() {
 
     val tabs = listOf(
         TabDish.Dishes,
@@ -56,25 +60,35 @@ fun HomeScreen(){
             contentColor = TittleColor
         ) {
 
-            Row(modifier = Modifier.fillMaxWidth()){
+            Row(modifier = Modifier.fillMaxWidth()) {
                 TextField(
                     value = address,
-                    onValueChange = {address = it},
-                    placeholder = { Text(text = "Ваш адрес доставки")},
+                    onValueChange = { address = it },
+                    placeholder = {
+                        Text(
+                            text = "Ваш адрес доставки",
+                            color = TittleColor,
+                            fontWeight = FontWeight.Light
+                        )
+                    },
                     leadingIcon = { Icons.Default.Navigation },
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Text,
-                        imeAction = ImeAction.Done),
+                        imeAction = ImeAction.Done
+                    ),
                     colors = TextFieldDefaults.textFieldColors(
                         backgroundColor = Color.Transparent,
                     )
                 )
 
-                OutlinedButton(
+                TextButton(
                     onClick = { /*TODO*/ },
                     modifier = Modifier.fillMaxSize()
-                ){
-                    Icons.Default.Search
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.icons_search),
+                        contentDescription = "search"
+                    )
                 }
 
 

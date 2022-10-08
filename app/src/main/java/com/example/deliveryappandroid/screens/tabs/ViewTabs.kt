@@ -30,7 +30,7 @@ fun Tabs(tabs: List<TabDish>, pagerState: PagerState) {
         tabs.forEachIndexed { index, tab ->
             Tab(
                 text = { Text(
-                    "${tab.title}", color = TittleColor
+                    "${tab.title}", color = SecondaryColor
                 ) },
                 selected = pagerState.currentPage == index,
                 onClick = {
