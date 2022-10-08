@@ -2,8 +2,10 @@ package com.example.deliveryappandroid.screens
 
 import android.content.Context
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -23,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -65,13 +68,12 @@ fun CartScreen() {
                     "Корзина",
                     style = MaterialTheme.typography.body1
                 )
-                cartList.removeAll(cartList)
 
-                TextButton(onClick = { cartList.removeAll(cartList) }) {
-                    Image(
-                        painter = painterResource(id = R.drawable.refresh_icon),
-                        contentDescription = "refresh"
-                    )
+                IconButton(
+                    modifier = Modifier
+                        .border(BorderStroke(1.dp, TittleColor)),
+                    onClick = { cartList.removeAll(cartList) }) {
+                    Icon(Icons.Filled.Refresh, contentDescription = "Refresh")
                 }
 
                 Button(
@@ -88,33 +90,23 @@ fun CartScreen() {
                         style = MaterialTheme.typography.button
                     )
                 }
+
+
+            }
+        }
+
+        LazyColumn(
+            modifier = Modifier.fillMaxHeight()
+        ) {
+            itemsIndexed(
+                cartList
+            ) { _, item ->
+                Dish(item = item)
+
             }
 
         }
-
-        if (cartList.isNotEmpty())
-            LazyColumn(
-                modifier = Modifier.fillMaxHeight()
-            ) {
-                itemsIndexed(
-                    cartList
-                ) { _, item ->
-                    Dish(item = item)
-    
-                }
-    
-            }
-        else
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center) {
-                Image(painter = painterResource(id = R.drawable.cart_icon), contentDescription = "cart")
-                Spacer(modifier = Modifier.height(30.dp))
-                Text(text = "Корзина пуста", style = MaterialTheme.typography.body1 )
-            }
-
-
     }
-
 }
 
 
