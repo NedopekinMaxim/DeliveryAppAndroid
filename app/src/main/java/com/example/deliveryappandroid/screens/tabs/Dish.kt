@@ -1,4 +1,4 @@
-package com.example.deliveryappandroid.tabs
+package com.example.deliveryappandroid.screens.tabs
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -29,10 +29,12 @@ import com.example.deliveryappandroid.ui.theme.SecondaryColor
 
 @Composable
 fun Dish(item: DishResponse) {
+
     val painter = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
             .data("http://food.madskill.ru/up/images/${item.icon}").build()
     )
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -49,16 +51,16 @@ fun Dish(item: DishResponse) {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .padding(3.dp)
-                    .size(64.dp)
+                    .size(60.dp)
                     .clip(CircleShape)
             )
             Column() {
                 Text(text = item.nameDish, fontWeight = FontWeight.Bold, fontSize = 20.sp)
-                Text(text = "${item.price} ₽")
+                Text(text = "${item.price} рублей", fontWeight = FontWeight.Light, fontSize = 10.sp)
             }
         }
-        IconButton(modifier = Modifier.padding(3.dp), onClick = { /*TODO*/ }) {
-            Icon(Icons.Filled.Add, contentDescription = "Добавить в корзину")
+        IconButton(modifier = Modifier.padding(3.dp), onClick = {}) {
+            Icon(Icons.Filled.Add, contentDescription = "add to cart")
 
         }
     }

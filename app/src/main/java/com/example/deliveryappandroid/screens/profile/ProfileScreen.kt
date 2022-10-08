@@ -9,6 +9,8 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.deliveryappandroid.ui.theme.BackgroundColor
@@ -21,8 +23,8 @@ fun ProfileScreen(){
             backgroundColor = BackgroundColor,
             contentColor = Color.White
         ) {
-            Text("Профиль", fontSize = 16.sp)
+            Text("Профиль пользователя", fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
         }
-        Text(text="Имя фамилия", fontSize = 30.sp)
+
     }
 }

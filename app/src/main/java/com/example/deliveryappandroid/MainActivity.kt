@@ -48,5 +48,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-//git push --force -u origin firstroad

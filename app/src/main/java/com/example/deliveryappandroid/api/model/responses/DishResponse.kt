@@ -1,7 +1,7 @@
 package com.example.deliveryappandroid.api.model.responses
 
 data class DishResponse(
-    val dishId: String,
+    val dishId: Int,
     val category: String,
     val nameDish: String,
     val price: String,

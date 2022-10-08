@@ -1,4 +1,4 @@
-package com.example.deliveryappandroid.tabs
+package com.example.deliveryappandroid.screens.tabs
 
 import androidx.compose.runtime.Composable
 import com.example.deliveryappandroid.view.ViewModelDishes

@@ -1,4 +1,4 @@
-package com.example.deliveryappandroid.tabs
+package com.example.deliveryappandroid.screens.tabs
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -12,6 +12,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import com.example.deliveryappandroid.api.model.responses.DishResponse
+import com.example.deliveryappandroid.ui.theme.BackgroundColor
+import com.example.deliveryappandroid.ui.theme.SecondaryColor
 import com.example.deliveryappandroid.ui.theme.TittleColor
 import com.example.deliveryappandroid.view.ViewModelDishes
 
@@ -24,7 +26,7 @@ fun SaucesTab(dish: ViewModelDishes) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(TittleColor)
+            .background(BackgroundColor)
     ) {
         LazyColumn(
             modifier = Modifier.fillMaxHeight()
