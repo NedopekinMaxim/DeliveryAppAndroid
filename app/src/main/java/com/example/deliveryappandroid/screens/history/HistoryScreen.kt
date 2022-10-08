@@ -15,8 +15,10 @@ import androidx.compose.ui.unit.sp
 import com.example.deliveryappandroid.ui.theme.BackgroundColor
 
 @Composable
-fun HistoryScreen(){
-    Column(modifier = Modifier.background(BackgroundColor).fillMaxSize()) {
+fun HistoryScreen() {
+    Column(modifier = Modifier
+        .background(BackgroundColor)
+        .fillMaxSize()) {
         TopAppBar(
             modifier = Modifier.height(55.dp),
             backgroundColor = BackgroundColor,
@@ -24,6 +26,6 @@ fun HistoryScreen(){
         ) {
             Text("История заказов", fontSize = 20.sp, fontWeight = FontWeight.Bold)
         }
-        Text(text="здесь сейчас будут заказы", fontSize = 15.sp)
+        Text(text = "здесь сейчас будут заказы", fontSize = 15.sp)
     }
 }

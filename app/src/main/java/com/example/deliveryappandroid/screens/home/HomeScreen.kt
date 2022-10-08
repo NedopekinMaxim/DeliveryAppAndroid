@@ -2,14 +2,13 @@ package com.example.deliveryappandroid.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Navigation
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -46,6 +45,7 @@ fun HomeScreen() {
         TabDish.Drinks
     )
 
+
     val pagerState = rememberPagerState()
 
     var address by remember {
@@ -73,15 +73,17 @@ fun HomeScreen() {
                     },
                     leadingIcon = { Icons.Default.Navigation },
                     keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Text,
-                        imeAction = ImeAction.Done
+                        keyboardType = KeyboardType.Text, imeAction = ImeAction.Done
                     ),
                     colors = TextFieldDefaults.textFieldColors(
                         backgroundColor = Color.Transparent,
                     )
                 )
 
-                TextButton(
+                IconButton(modifier = Modifier.fillMaxSize(), onClick = {}) {
+                    Icon(Icons.Filled.Search, contentDescription = "Search")
+                }
+                /*TextButton(
                     onClick = { /*TODO*/ },
                     modifier = Modifier.fillMaxSize()
                 ) {
@@ -89,7 +91,7 @@ fun HomeScreen() {
                         painter = painterResource(id = R.drawable.icons_search),
                         contentDescription = "search"
                     )
-                }
+                }*/
 
 
             }

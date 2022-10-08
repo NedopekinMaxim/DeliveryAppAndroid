@@ -29,12 +29,23 @@ fun SnacksTab(dish: ViewModelDishes) {
         LazyColumn(
             modifier = Modifier.fillMaxHeight()
         ) {
-            itemsIndexed(items = item!!)
+            itemsIndexed(
+                listOf(
+                    DishResponse("4", "Snacks", "Чипсы", "30", "R.drawable.pizza", "1"),
+                    DishResponse("4", "Snacks", "Чипсы", "30", "R.drawable.pizza", "1"),
+                    DishResponse("4", "Snacks", "Чипсы", "30", "R.drawable.pizza", "1")
+                )
+            ) { _, item ->
+                Dish(item = item)
+
+            }
+
+            /*itemsIndexed(items = item!!)
             { _, item: DishResponse ->
                 if (item.category == "Snacks") {
                     Dish(item = item)
                 }
-            }
+            }*/
         }
     }
 }

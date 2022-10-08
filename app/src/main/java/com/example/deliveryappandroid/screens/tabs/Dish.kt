@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
@@ -24,6 +25,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 import com.example.deliveryappandroid.api.model.responses.DishResponse
+import com.example.deliveryappandroid.screens.cart.cartList
 import com.example.deliveryappandroid.ui.theme.SecondaryColor
 
 
@@ -40,7 +42,8 @@ fun Dish(item: DishResponse) {
             .fillMaxWidth()
             .padding(3.dp)
             .clip(RoundedCornerShape(19.dp))
-            .background(SecondaryColor),
+            .background(Color())
+            .height(100.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
@@ -59,7 +62,7 @@ fun Dish(item: DishResponse) {
                 Text(text = "${item.price} рублей", fontWeight = FontWeight.Light, fontSize = 10.sp)
             }
         }
-        IconButton(modifier = Modifier.padding(3.dp), onClick = {}) {
+        IconButton(modifier = Modifier.padding(3.dp), onClick = { cartList.add(item)}) {
             Icon(Icons.Filled.Add, contentDescription = "add to cart")
 
         }

@@ -29,20 +29,24 @@ fun DishTab(dish: ViewModelDishes) {
         LazyColumn(
             modifier = Modifier.fillMaxHeight()
         ) {
-            /*itemsIndexed(listOf(
-                DishResponse(R.drawable.pizza, "Foods", "Пицца", "200."),
-                DishResponse(R.drawable.pizza, "Foods", "Пицца", "200"),
-                DishResponse(R.drawable.pizza, "Foods", "Пицца", "200")
-            )) { _, item ->
+            itemsIndexed(
+                listOf(
+                    DishResponse("1", "Foods", "Пицца", "200", "R.drawable.pizza", "1"),
+                    DishResponse("1", "Foods", "Пицца", "200", "R.drawable.pizza", "1"),
+                    DishResponse("1", "Foods", "Пицца", "200", "R.drawable.pizza", "1")
+                )
+            ) { _, item ->
                 Dish(item = item)
 
-            }*/
-             itemsIndexed(items = item!!)
-            { _, item: DishResponse ->
-                if (item.category == "Dishes") {
-                    Dish(item = item)
-                }
             }
+
+            //correct version
+            /*itemsIndexed(items = item!!)
+           { _, item: DishResponse ->
+               if (item.category == "Dishes") {
+                   Dish(item = item)
+               }
+           }*/
         }
     }
 }

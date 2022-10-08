@@ -31,12 +31,23 @@ fun SaucesTab(dish: ViewModelDishes) {
         LazyColumn(
             modifier = Modifier.fillMaxHeight()
         ) {
-            itemsIndexed(items = item!!)
+            itemsIndexed(
+                listOf(
+                    DishResponse("3", "Sauce", "Сырный", "30", "R.drawable.pizza", "1"),
+                    DishResponse("3", "Sauce", "Сырный", "30", "R.drawable.pizza", "1"),
+                    DishResponse("3", "Sauce", "Сырный", "30", "R.drawable.pizza", "1")
+                )
+            ) { _, item ->
+                Dish(item = item)
+
+            }
+
+            /*itemsIndexed(items = item!!)
             { _, item: DishResponse ->
                 if (item.category == "Sauces") {
                     Dish(item = item)
                 }
-            }
+            }*/
         }
     }
 }

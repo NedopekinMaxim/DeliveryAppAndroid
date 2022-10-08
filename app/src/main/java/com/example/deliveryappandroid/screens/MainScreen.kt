@@ -31,46 +31,45 @@ fun MainScreen() {
     var navController = rememberNavController()
 
     val items = listOf(
-        NavItem.Main,
-        NavItem.Cart,
-        NavItem.Profile,
-        NavItem.History
+        NavItem.Main, NavItem.Cart, NavItem.Profile, NavItem.History
     )
 
 
-    Scaffold(
-        bottomBar = {
-            BottomNavigation(backgroundColor = BackgroundColor, contentColor = TittleColor) {
-                val navBackStackEntry by navController.currentBackStackEntryAsState()
-                val currentRoute = navBackStackEntry?.destination?.route
-                items.forEach() { items ->
-                    BottomNavigationItem(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)),
-                        alwaysShowLabel = true,
-                        selected = currentRoute == items.route,
-                        selectedContentColor = SecondaryColor,
-                        unselectedContentColor = MinorGrayColor,
-                        label = { Text(text = items.title, fontWeight = FontWeight.Bold) },
-                        icon = { Icon(imageVector = items.icon, contentDescription = items.route) },
-                        onClick = {
-                            navController.navigate(items.route) {
-                                navController.graph.startDestinationRoute?.let { route ->
-                                    popUpTo(route) {
-                                        saveState = true
-                                    }
+    Scaffold(bottomBar = {
+        BottomNavigation(backgroundColor = BackgroundColor, contentColor = TittleColor) {
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val currentRoute = navBackStackEntry?.destination?.route
+            items.forEach() { items ->
+                BottomNavigationItem(
+                    modifier = Modifier.clip(
+                            RoundedCornerShape(
+                                topStart = 20.dp,
+                                topEnd = 20.dp
+                            )
+                        ),
+                    alwaysShowLabel = true,
+                    selected = currentRoute == items.route,
+                    selectedContentColor = SecondaryColor,
+                    unselectedContentColor = MinorGrayColor,
+                    label = { Text(text = items.title, fontWeight = FontWeight.Bold) },
+                    icon = { Icon(imageVector = items.icon, contentDescription = items.route) },
+                    onClick = {
+                        navController.navigate(items.route) {
+                            navController.graph.startDestinationRoute?.let { route ->
+                                popUpTo(route) {
+                                    saveState = true
                                 }
-                                launchSingleTop = true
-                                restoreState = true
                             }
-                        },
-                    )
-                }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    },
+                )
             }
-
-
         }
-    ) {
+
+
+    }) {
         NavigationScreens(navController = navController)
     }
 }

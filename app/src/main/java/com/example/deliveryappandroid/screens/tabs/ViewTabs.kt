@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 fun Tabs(tabs: List<TabDish>, pagerState: PagerState) {
     val scope = rememberCoroutineScope()
     TabRow(
-        modifier = Modifier.height(60.dp) ,
+        modifier = Modifier.height(60.dp),
         selectedTabIndex = pagerState.currentPage,
         backgroundColor = BackgroundColor,
         contentColor = TittleColor,
@@ -29,9 +29,11 @@ fun Tabs(tabs: List<TabDish>, pagerState: PagerState) {
         }) {
         tabs.forEachIndexed { index, tab ->
             Tab(
-                text = { Text(
-                    "${tab.title}", color = SecondaryColor
-                ) },
+                text = {
+                    Text(
+                        "${tab.title}", color = SecondaryColor
+                    )
+                },
                 selected = pagerState.currentPage == index,
                 onClick = {
                     scope.launch {

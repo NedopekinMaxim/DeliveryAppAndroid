@@ -16,8 +16,10 @@ import androidx.compose.ui.unit.sp
 import com.example.deliveryappandroid.ui.theme.BackgroundColor
 
 @Composable
-fun ProfileScreen(){
-    Column(modifier = Modifier.background(BackgroundColor).fillMaxSize()) {
+fun ProfileScreen() {
+    Column(modifier = Modifier
+        .background(BackgroundColor)
+        .fillMaxSize()) {
         TopAppBar(
             modifier = Modifier.height(55.dp),
             backgroundColor = BackgroundColor,
